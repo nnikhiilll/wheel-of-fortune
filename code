@@ -1,0 +1,30 @@
+# main.py
+print("Welcome to Hangman! You have 15 guesses to figure out the correct word. Good luck!")
+correct='programming'
+letters=set(correct)
+guesses=15
+done=set()
+
+# make a while loop for the number of guesses
+# 
+while guesses>0:
+  empty=""
+  for i in correct:
+    if i in done:
+      empty+=i
+    else:
+      empty+="_"
+  print(empty)
+  if empty==correct:
+    print("Correct, you won!")
+    break
+  ask=input("Guess a letter. You have "+str(guesses)+" remaining: ")
+  if ask in correct:
+    done.add(ask)
+  guesses-=1
+if guesses==0:
+  print("Out of guesses")
+  
+#does not let you repeat the letter
+#letters are not in the same order
+
